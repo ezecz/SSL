@@ -1,0 +1,40 @@
+digraph G {
+ nodesep = .75
+
+ Calculator -> ScannerO
+ Calculator -> CalculatorO
+ Calculator -> StandardLibrary
+ Calculator -> StackOfDoublesModuleO
+ Calculator [label="Calculator.exe"]
+
+ CalculatorO -> CalculatorC
+ CalculatorO [label="Calculator.o"]
+
+ ScannerO -> ScannerC
+ ScannerO [label="Scanner.o"]
+
+ StackOfDoublesModuleO -> StackOfDoublesModuleC
+ StackOfDoublesModuleO [label="StackOfDoublesModule.o"]
+
+ CalculatorC -> ScannerH
+ CalculatorC -> StackOfDoublesModuleH
+ CalculatorC -> STDIO_H
+ CalculatorC -> STDLIB_H
+ CalculatorC -> STDARG_H
+ CalculatorC [label="Calculator.c"]
+
+ ScannerH [label="Scanner.h"]
+ StackOfDoublesModuleH [label="StackOfDoublesModule.h"]
+
+ ScannerC -> ScannerH //-> STDBOOL_H
+ ScannerC [label="Scanner.c"]
+
+ StackOfDoublesModuleC -> StackOfDoublesModuleH //-> STDBOOL_H
+ StackOfDoublesModuleC [label="StackOfDoublesModule.c"]
+
+ STDIO_H [label="stdio.h"]
+ STDLIB_H [label="stdlib.h"]
+ STDARG_H [label="stdarg.h"]
+ //STDBOOL_H [label="stdbool.h"]
+ StandardLibrary [label="Biblioteca\nEstándar"]
+}

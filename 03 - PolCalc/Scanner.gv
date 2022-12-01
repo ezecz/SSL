@@ -1,0 +1,32 @@
+digraph G {
+ size="8,6"
+ rankdir=LR
+ nodesep=0.5
+ 
+ node [shape=circle]
+ QI -> Q1
+ Q1 -> Q1	[label="SPACE"]
+ Q1 -> Q2
+ Q2 -> QF1	[label="EOF"]
+ Q2 -> QF3	[label="Dígito || Punto"]
+ Q2 -> Q3	[label="~Dígito && ~Punto",constraint=false]
+ Q3 -> Q4	[label="Dígito"]
+ Q4 -> Q4	[label="Dígito"]
+ Q4 -> Q5
+ Q3 -> Q5	[label="~Dígito"]
+ Q5 -> Q6	[label="Punto"]
+ Q6 -> Q6	[label="Dígito"]
+ Q6 -> QF2
+ Q5 -> QF2
+
+ QI     [label="0-",peripheries=2]
+ Q1     [label="1"]
+ Q2     [label="2"]
+ Q3     [label="3"]
+ Q4     [label="4"]
+ Q5     [label="5"]
+ Q6     [label="6"]
+ QF1	[label="7+",peripheries=2]
+ QF2	[label="8+",peripheries=2]
+ QF3	[label="9+",peripheries=2]
+}
